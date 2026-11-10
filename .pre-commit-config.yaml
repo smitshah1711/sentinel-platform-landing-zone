@@ -1,0 +1,18 @@
+# Install: pip install pre-commit && pre-commit install
+# Then run `pre-commit autoupdate` to pin the latest hook versions.
+repos:
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.96.1
+    hooks:
+      - id: terraform_fmt
+      - id: terraform_validate
+        args: ["--hook-config=--retry-once-with-cleanup=true", "--args=-no-color"]
+      - id: terraform_checkov
+        args: ["--args=--quiet --config-file __GIT_WORKING_DIR__/.checkov.yaml"]
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-json
+      - id: detect-private-key

@@ -1,0 +1,6 @@
+admin_user = {
+  user_name   = "your.name"
+  given_name  = "Your"
+  family_name = "Name"
+  email       = "you@example.com"
+}

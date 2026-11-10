@@ -1,0 +1,4 @@
+# Every change to the landing zone needs a platform owner's review.
+# Replace with your GitHub username or team.
+*                   @YOUR_GITHUB_USERNAME
+/stacks/10-organization/policies/  @YOUR_GITHUB_USERNAME

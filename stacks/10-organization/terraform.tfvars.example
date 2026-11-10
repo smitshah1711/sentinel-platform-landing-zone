@@ -1,0 +1,29 @@
+# Copy to terraform.tfvars (git-ignored) and replace the emails.
+# Each email must be unused by any other AWS account. Gmail plus-addressing works.
+
+accounts = {
+  "log-archive" = {
+    email = "you+sentinel-log-archive@example.com"
+    ou    = "security"
+  }
+  "security-tooling" = {
+    email = "you+sentinel-security@example.com"
+    ou    = "security"
+  }
+  "shared-services" = {
+    email = "you+sentinel-shared@example.com"
+    ou    = "infrastructure"
+  }
+  "dev" = {
+    email = "you+sentinel-dev@example.com"
+    ou    = "nonprod"
+  }
+  "staging" = {
+    email = "you+sentinel-staging@example.com"
+    ou    = "nonprod"
+  }
+  "prod" = {
+    email = "you+sentinel-prod@example.com"
+    ou    = "prod"
+  }
+}

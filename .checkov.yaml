@@ -1,0 +1,16 @@
+framework:
+  - terraform
+compact: true
+quiet: true
+skip-check:
+  # Access logging on the state and trail buckets would need a separate log bucket per account;
+  # CloudTrail data events cover this need later in the project. Tracked in docs/adr/0002.
+  - CKV_AWS_18
+  # Cross-region replication of state/log buckets is added with the DR work in week 12.
+  - CKV_AWS_144
+  # Event notifications are not required for these buckets.
+  - CKV2_AWS_62
+  # CloudTrail -> CloudWatch Logs integration is added with the observability work in week 11.
+  - CKV2_AWS_10
+  # An SNS topic for CloudTrail delivery notifications is not required.
+  - CKV_AWS_252
