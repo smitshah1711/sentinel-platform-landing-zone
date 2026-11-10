@@ -1,7 +1,7 @@
 resource "aws_organizations_account" "this" {
   for_each = var.accounts
 
-  name      = "sentinel-${each.key}"
+  name      = coalesce(each.value.name, "sentinel-${each.key}")
   email     = each.value.email
   parent_id = local.ou_ids[each.value.ou]
 

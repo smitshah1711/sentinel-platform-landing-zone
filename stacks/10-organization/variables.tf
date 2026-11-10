@@ -11,10 +11,11 @@ variable "allowed_regions" {
 }
 
 variable "accounts" {
-  description = "Member accounts to create. Keys are account names; ou must be one of: security, infrastructure, nonprod, prod."
+  description = "Member accounts. Keys are short names; ou must be one of: security, infrastructure, nonprod, prod. name overrides the default display name sentinel-<key> (useful for imported accounts)."
   type = map(object({
     email = string
     ou    = string
+    name  = optional(string)
   }))
 
   validation {

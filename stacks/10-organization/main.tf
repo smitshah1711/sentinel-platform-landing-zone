@@ -12,6 +12,8 @@ resource "aws_organizations_organization" "this" {
     "securityhub.amazonaws.com",
     "sso.amazonaws.com",
     "member.org.stacksets.cloudformation.amazonaws.com",
+    # Resource Access Manager: shares Transit Gateway and subnets across accounts (week 2).
+    "ram.amazonaws.com",
   ]
 
   enabled_policy_types = [
