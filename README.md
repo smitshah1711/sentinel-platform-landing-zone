@@ -127,6 +127,26 @@ aws s3 ls s3://<trail-bucket>/AWSLogs/ --recursive --profile sentinel-log-archiv
 
 Record these four results (screenshots or terminal output) for your write-up.
 
+## Week 1 evidence
+
+All four exit-gate checks passed on 2026-11-10. Each image is real CLI output captured by [`scripts/capture-week1-evidence.ps1`](scripts/capture-week1-evidence.ps1).
+
+**1. Single sign-on works.** PlatformAdmin in the dev account through IAM Identity Center, with no IAM users or access keys.
+
+![SSO identity in the dev account](docs/screenshots/week-1/01-sso-identity.png)
+
+**2. The region guardrail blocks everyone, admins included.** An explicit deny from `sentinel-region-guardrail` stops eu-west-1.
+
+![SCP explicit deny in eu-west-1](docs/screenshots/week-1/02-scp-region-deny.png)
+
+**3. Approved regions still work.** The same call in ca-central-1 succeeds.
+
+![describe-vpcs succeeds in ca-central-1](docs/screenshots/week-1/03-allowed-region.png)
+
+**4. Every account logs to the archive.** The organization trail writes one folder per member account into the locked log-archive bucket.
+
+![Organization CloudTrail folders in log-archive](docs/screenshots/week-1/04-org-cloudtrail-logs.png)
+
 ## Branching and releases
 
 - Short-lived branches off `main` (`feat/…`, `fix/…`), Conventional Commits, PR required.
